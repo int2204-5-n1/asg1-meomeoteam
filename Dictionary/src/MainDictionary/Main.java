@@ -1,4 +1,4 @@
-package sample;
+package MainDictionary;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,14 +12,14 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
+
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("MainDictionary.fxml"));
             primaryStage.setTitle("Dictionary");
-            Scene scene=new Scene(root);
+            Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
