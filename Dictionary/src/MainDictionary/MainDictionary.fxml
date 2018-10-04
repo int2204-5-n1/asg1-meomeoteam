@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -46,6 +47,7 @@
             <children>
                 <TextField fx:id="Word" layoutX="14.0" layoutY="26.0" />
                 <Button layoutX="195.0" layoutY="26.0" mnemonicParsing="false" onAction="#ActionButton" text="Dịch" />
+            <ListView fx:id="listView" layoutX="-2.0" layoutY="60.0" onMouseClicked="#ClickMouse" prefHeight="315.0" prefWidth="252.0" />
             </children>
         </AnchorPane>
     </left>
