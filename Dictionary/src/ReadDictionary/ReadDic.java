@@ -25,15 +25,10 @@ public class ReadDic{
 
                 if (index != -1) {
                     word = line.substring(0, index);
-
                     word = word.trim();
                     keys.add(word);
-
                     def = line.substring(index);
-
-
                     data.put(word, def);
-
                     wordsNum++;
                 }
             }

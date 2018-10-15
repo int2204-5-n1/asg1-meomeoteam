@@ -18,8 +18,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root =FXMLLoader.load(getClass().getResource("MainDictionary.fxml"));
-            primaryStage.setTitle("Dictionary");
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("Themes.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
