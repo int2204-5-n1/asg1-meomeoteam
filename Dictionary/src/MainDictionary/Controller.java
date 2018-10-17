@@ -27,6 +27,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class Controller implements Initializable {
     public int index = 0;
     //tạo TextFiled
     @FXML
-    private TextField Word;
+    protected TextField Word;
 
     //tạo webView
     @FXML
@@ -50,16 +52,10 @@ public class Controller implements Initializable {
 
     //tạo ListView
     @FXML
-    private ListView <String> listView;
+    protected ListView <String> listView;
 
     ReadDic readDic=new ReadDic();
 
-    /*//tao su kien Quit Menu
-    public void ActionMenu(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
-    }
-    */
     //Tạo sự kiên Button Translate
     public void ActionButton(ActionEvent event) {
         String word=Word.getText();
@@ -89,7 +85,6 @@ public class Controller implements Initializable {
     }
 
     //Tạo sự kiện khi ấn vào word trên listView thì sẽ translate
-    @FXML
     public void ClickMouse(MouseEvent event) {
         String word=listView.getSelectionModel().getSelectedItem();
         if (word != null || !word.isEmpty()) {
@@ -97,22 +92,20 @@ public class Controller implements Initializable {
             //Word.setText(word);
         }
     }
-
+    public void Delete (ActionEvent event){
+        String word=listView.getSelectionModel().getSelectedItem();
+        int n = readDic.keys.lastIndexOf(word);
+        if (n>=0 && n<=readDic.keys.size()-1){
+            readDic.keys.remove(n);
+            readDic.data.remove(word);
+        }
+    }
     //Tạo sự kiện khi ấn vào button sound, cách phát âm
-    public void ActionSound(ActionEvent event) {
+    public void ActionSound(ActionEvent event) throws IOException, JavaLayerException {
             String word=listView.getSelectionModel().getSelectedItem();
             Audio audio=Audio.getInstance();
-            InputStream sound= null;
-        try {
-            sound = audio.getAudio(word,Language.ENGLISH);
-        } catch (IOException e) {
-            Logger.getLogger(JavaFX_TextToSpeech.class.getName()).log(Level.SEVERE, null, e);
-        }
-        try {
+            InputStream sound = audio.getAudio(word,Language.ENGLISH);
             audio.play(sound);
-        } catch (JavaLayerException e) {
-            Logger.getLogger(JavaFX_TextToSpeech.class.getName()).log(Level.SEVERE, null, e);
-        }
     }
 
     @Override
@@ -150,6 +143,7 @@ public class Controller implements Initializable {
                     webView.getEngine().loadContent(readDic.data.get(word));
                 }
                 else index=0;
+
             }
         });
 
@@ -174,6 +168,4 @@ public class Controller implements Initializable {
         });
     }
 
-    private class JavaFX_TextToSpeech {
-    }
 }

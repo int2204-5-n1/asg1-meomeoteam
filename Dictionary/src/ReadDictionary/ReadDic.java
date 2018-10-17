@@ -1,17 +1,18 @@
 package ReadDictionary;
 
+import MainDictionary.Controller;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
-public class ReadDic{
-    public Map<String,String> data= new HashMap<>();
+public class ReadDic {
+    public HashMap<String, String> data= new HashMap <>() ;
     public ArrayList <String> keys = new ArrayList<>();
     public void ReadDicEV(){
         BufferedReader reader = null;
         try{
-            reader = new BufferedReader(new FileReader("E:\\asg1-meomeoteam\\data\\E_V.txt"));
+            reader = new BufferedReader(new FileReader("data\\E_V.txt"));
             String line, word, def;
             int wordsNum = 0;
             while ((line = reader.readLine()) != null) {

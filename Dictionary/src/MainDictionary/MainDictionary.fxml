@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainDictionary.Controller">
    <children>
-      <TextField fx:id="Word" layoutX="3.0" layoutY="87.0" prefHeight="27.0" prefWidth="249.0" />
+      <TextField fx:id="Word" layoutX="3.0" layoutY="87.0" prefHeight="27.0" prefWidth="249.0" promptText="Word" />
       <Button layoutX="259.0" layoutY="74.0" mnemonicParsing="false" onAction="#ActionButton" prefHeight="20.0" prefWidth="51.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
@@ -39,7 +39,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button contentDisplay="TOP" layoutX="579.0" layoutY="5.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="53.0">
+      <Button contentDisplay="TOP" layoutX="579.0" layoutY="5.0" mnemonicParsing="false" onAction="#Delete" prefHeight="34.0" prefWidth="53.0">
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class ControllerEdit {
+public class ControllerEdit{
+    @FXML
+    private TextField Word;
     @FXML
     private TextField WordEdit;
     @FXML
