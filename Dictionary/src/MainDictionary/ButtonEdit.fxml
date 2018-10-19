@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainDictionary.ControllerEdit">
    <children>
-      <TextField fx:id="Word" layoutX="22.0" layoutY="31.0" prefHeight="25.0" prefWidth="222.0" promptText="Word" />
+      <TextField fx:id="BeforeWord" layoutX="22.0" layoutY="31.0" prefHeight="25.0" prefWidth="222.0" promptText="Word" />
       <Label layoutX="22.0" layoutY="69.0" text="Mean" />
       <TextArea fx:id="MeanEdit" layoutX="22.0" layoutY="92.0" prefHeight="189.0" prefWidth="460.0" promptText="Mean" />
       <Button layoutX="222.0" layoutY="287.0" mnemonicParsing="false" onAction="#ActionEdit" text="OK" />

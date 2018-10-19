@@ -13,6 +13,15 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class Main extends Application {
+    private static FXMLLoader mLoader;
+
+    public static FXMLLoader getLoader() {
+        return mLoader;
+    }
+
+    public static void setLoader(FXMLLoader tempLoader) {
+        mLoader = tempLoader;
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -21,11 +30,16 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("MainDictionary.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("MainDictionary.fxml"));
+            fxmlLoader.load();
+            Parent root =fxmlLoader.getRoot();
+            setLoader(fxmlLoader);
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("Themes.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
+
             //đóng cửa sổ
             primaryStage.setOnCloseRequest(e ->{
                 Alert alert = new Alert(Alert.AlertType.NONE);
@@ -37,10 +51,11 @@ public class Main extends Application {
                 if (result.get() == buttonTypeYES)
                     primaryStage.close();
                 else if (result.get().getButtonData() == ButtonBar.ButtonData.NO)
-                    primaryStage.show();
+                    e.consume();
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

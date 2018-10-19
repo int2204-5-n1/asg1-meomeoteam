@@ -12,18 +12,16 @@ public class ReadDic {
     public void ReadDicEV(){
         BufferedReader reader = null;
         try{
-            reader = new BufferedReader(new FileReader("data\\E_V.txt"));
+            reader = new BufferedReader(new FileReader("E:\\asg1-meomeoteam\\Dictionary\\src\\data\\E_V.txt"));
             String line, word, def;
             int wordsNum = 0;
             while ((line = reader.readLine()) != null) {
-
                 int index = line.indexOf("<html>");
                 int index2 = line.indexOf("<ul>");
 
                 if (index2 != -1 && index > index2) {
                     index = index2;
                 }
-
                 if (index != -1) {
                     word = line.substring(0, index);
                     word = word.trim();

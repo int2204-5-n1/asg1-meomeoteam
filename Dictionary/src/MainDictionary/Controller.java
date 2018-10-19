@@ -1,44 +1,36 @@
 package MainDictionary;
 
 import ReadDictionary.ReadDic;
-import com.gtranslate.Audio;
-import com.gtranslate.Language;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
+import com.sun.speech.freetts.VoiceManager;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.web.WebEngine;
+
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
-import javazoom.jl.decoder.JavaLayerException;
+
+
 
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.net.URL;
-import java.security.Key;
+
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Controller implements Initializable {
     public int index = 0;
@@ -53,8 +45,9 @@ public class Controller implements Initializable {
     //tạo ListView
     @FXML
     protected ListView <String> listView;
-
     ReadDic readDic=new ReadDic();
+
+    private final String FileEV = "E:\\asg1-meomeoteam\\Dictionary\\src\\data\\E_V.txt";
 
     //Tạo sự kiên Button Translate
     public void ActionButton(ActionEvent event) {
@@ -89,7 +82,6 @@ public class Controller implements Initializable {
         String word=listView.getSelectionModel().getSelectedItem();
         if (word != null || !word.isEmpty()) {
             webView.getEngine().loadContent(readDic.data.get(word));
-            //Word.setText(word);
         }
     }
     public void Delete (ActionEvent event){
@@ -100,12 +92,15 @@ public class Controller implements Initializable {
             readDic.data.remove(word);
         }
     }
+
     //Tạo sự kiện khi ấn vào button sound, cách phát âm
-    public void ActionSound(ActionEvent event) throws IOException, JavaLayerException {
-            String word=listView.getSelectionModel().getSelectedItem();
-            Audio audio=Audio.getInstance();
-            InputStream sound = audio.getAudio(word,Language.ENGLISH);
-            audio.play(sound);
+    public void ActionSound(ActionEvent event){
+        int index = listView.getSelectionModel().getSelectedIndex();
+        String word = readDic.keys.get(index);
+        VoiceManager voiceManager = VoiceManager.getInstance();
+        com.sun.speech.freetts.Voice sVoice = voiceManager.getVoice("kevin16");
+        sVoice.allocate();
+        sVoice.speak(word);
     }
 
     @Override
@@ -167,5 +162,7 @@ public class Controller implements Initializable {
             listView.setItems(filteredList);
         });
     }
+
+
 
 }

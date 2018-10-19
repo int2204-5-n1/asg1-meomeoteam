@@ -1,25 +1,16 @@
 package MainDictionary;
 
 import ReadDictionary.ReadDic;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class ControllerAdd{
@@ -27,21 +18,23 @@ public class ControllerAdd{
     private TextField WordAdd;
     @FXML
     private TextArea MeanAdd;
+    private final String FileEV = "E:\\asg1-meomeoteam\\Dictionary\\src\\data\\E_V.txt";
     ReadDic readDic = new ReadDic();
-    private final String FileEV = "E:\\asg1-meomeoteam\\data\\E_V.txt";
-
-    //Tạo sự kiên cho Button OK
-    public void ActionAdd (ActionEvent event){
+    public void AddWord(ActionEvent event){
         String wordAdd = WordAdd.getText();
         String meanAdd = MeanAdd.getText();
+//        Controller controller = new Controller();
+//        controller.add(wordAdd,meanAdd);
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
             fw = new FileWriter(FileEV, true);
             bw = new BufferedWriter(fw);
-            String word = wordAdd + "<html>" + meanAdd + "</html>";
+            String word = wordAdd + "<html>" + "<ul>" + meanAdd + "</ul>" + "</html>";
             bw.newLine();
             bw.write(word);
+            readDic.keys.add(wordAdd);
+            readDic.data.put(meanAdd,wordAdd);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
@@ -58,6 +51,6 @@ public class ControllerAdd{
             }
         }
         System.out.println(wordAdd);
-        System.out.printf(meanAdd);
+        System.out.println(meanAdd);
     }
 }
