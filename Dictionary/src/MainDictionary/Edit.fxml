@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="351.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainDictionary.ControllerEdit">
+    <children>
+        <TextField fx:id="ChooseWord" layoutX="38.0" layoutY="29.0" prefHeight="25.0" prefWidth="434.0" promptText="ChooseWord" />
+        <TextArea fx:id="MeanEdit" layoutX="38.0" layoutY="148.0" prefHeight="160.0" prefWidth="434.0" promptText="MeanEdit" />
+        <Button layoutX="235.0" layoutY="321.0" mnemonicParsing="false" onAction="#Edit" text="OK" />
+        <Label layoutX="38.0" layoutY="6.0" text="Word:" />
+        <Label layoutX="38.0" layoutY="118.0" prefHeight="17.0" prefWidth="62.0" text="New Mean" />
+        <TextField fx:id="WordEdit" layoutX="38.0" layoutY="87.0" prefHeight="25.0" prefWidth="434.0" promptText="WordEdit" />
+        <Label layoutX="42.0" layoutY="61.0" prefHeight="17.0" prefWidth="62.0" text="New Word" />
+    </children>
+</AnchorPane>

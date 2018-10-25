@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainDictionary.ControllerAdd">
+    <children>
+        <TextField fx:id="WordAdd" layoutX="40.0" layoutY="34.0" prefHeight="25.0" prefWidth="368.0" promptText="Word" />
+        <TextArea fx:id="MeanAdd" layoutX="41.0" layoutY="86.0" prefHeight="200.0" prefWidth="368.0" promptText="Mean" />
+        <Button layoutX="209.0" layoutY="295.0" mnemonicParsing="false" onAction="#ActionAdd" text="ADD" />
+        <Label layoutX="41.0" layoutY="14.0" prefHeight="17.0" prefWidth="72.0" text="New Word" />
+        <Label layoutX="41.0" layoutY="63.0" prefHeight="17.0" prefWidth="65.0" text="New Mean:" />
+    </children>
+</AnchorPane>
