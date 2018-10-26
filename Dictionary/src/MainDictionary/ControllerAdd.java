@@ -19,6 +19,7 @@ public class ControllerAdd {
         String meanAdd = MeanAdd.getText();
 
         Controller controller = Main.getLoader().getController();
+
         if (wordAdd.equals("") && meanAdd.equals(""))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -45,7 +45,7 @@ public class Controller implements Initializable {
     private PreparedStatement preparedStatement=null;
     private ResultSet resultSet=null;
 
-    private ObservableList <String> listLanguage = FXCollections.observableArrayList("English - Vietnamese", "Vietnamese - English");
+    private ObservableList<String> listLanguage = FXCollections.observableArrayList("English - Vietnamese", "Vietnamese - English");
     private ObservableList<String> data=FXCollections.observableArrayList();
 
     public void ActionSearch(ActionEvent event) throws SQLException {
