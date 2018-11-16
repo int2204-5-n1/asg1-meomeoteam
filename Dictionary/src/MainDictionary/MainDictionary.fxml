@@ -17,7 +17,7 @@
             <graphic>
                 <ImageView fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/Image/search.png" />
+                        <Image url="@../Image/search%20(1).png" />
                     </image>
                 </ImageView>
             </graphic></Button>
@@ -27,7 +27,7 @@
             <graphic>
                 <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="300.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/Image/add.png" />
+                        <Image url="@../Image/add%20(1).png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -36,7 +36,7 @@
             <graphic>
                 <ImageView fitHeight="42.0" fitWidth="50.0" layoutX="398.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/Image/delete.png" />
+                        <Image url="@../Image/edit1.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -45,7 +45,7 @@
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="52.0" layoutX="354.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/Image/edit.png" />
+                        <Image url="@../Image/document.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -60,7 +60,7 @@
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/Image/sound.png" />
+                        <Image url="@../Image/speaker.png" />
                     </image>
                 </ImageView>
             </graphic>
